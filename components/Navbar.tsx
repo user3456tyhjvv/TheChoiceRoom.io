@@ -19,7 +19,7 @@ const Modal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) =>
             href="mailto:theonechoice@gmail.com" 
             className="text-blue-500 underline hover:text-blue-700"
           >
-            theonechoice@gmail.com
+            theonechoice416@gmail.com
           </a>
         </p>
         <p className="text-sm text-gray-600 mb-4">

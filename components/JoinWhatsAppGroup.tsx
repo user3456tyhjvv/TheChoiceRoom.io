@@ -17,7 +17,7 @@ const JoinWhatsAppGroup = () => {
           Secure Your Spot in Our
           <span className="text-yellow-400"> Exclusive Community</span>
         </h2>
-        <p className="text-xl mb-12">Here's what you should do next...</p>
+        <p className="text-xl mb-12">Here&apos;s what you should do next...</p>
 
         <motion.div 
           className="w-full bg-gray-700 h-4 rounded-full mb-12 relative overflow-hidden"
@@ -37,7 +37,7 @@ const JoinWhatsAppGroup = () => {
         >
           <h3 className="text-2xl font-semibold mb-6">Join Our Private WhatsApp Group</h3>
           <p className="text-gray-300 mb-8">
-            Get instant access to our Private WhatsApp group to download your 2025 Plan of Attack + all the free resources we'll share throughout the event for each episode.
+            Get instant access to our Private WhatsApp group to download your 2025 Plan of Attack + all the free resources we&apos;ll share throughout the event for each episode.
           </p>
           <a
             href="https://chat.whatsapp.com/FWnKIR99gt835V0qH53NO0"
@@ -49,7 +49,7 @@ const JoinWhatsAppGroup = () => {
             JOIN THE WHATSAPP GROUP
           </a>
           <p className="mt-6 text-sm text-gray-400">
-            Don't have WhatsApp? <a href="https://www.whatsapp.com/download" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Download it here</a>. It's essential for our communication.
+            Don&apos;t have WhatsApp? <a href="https://www.whatsapp.com/download" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Download it here</a>. It&apos;s essential for our communication.
           </p>
         </motion.div>
       </div>
@@ -58,4 +58,3 @@ const JoinWhatsAppGroup = () => {
 }
 
 export default JoinWhatsAppGroup
-
