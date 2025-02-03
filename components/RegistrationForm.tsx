@@ -1,35 +1,32 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import PhoneInput from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
-const RegistrationForm = () => {
-  const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
-  const [phone, setPhone] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [error, setError] = useState('')
-  const [showForm, setShowForm] = useState(false)
+const RegistrationForm: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
+  const [showForm, setShowForm] = useState(false);
 
-  const backendUrl = "http://localhost:3000/backend/subscribeHandler";
-
-  
-  
+  const backendUrl = 'http://localhost:3000/backend/subscribeHandler';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
-  
+
     if (!email || !name || !phone) {
       setError('All fields are required.');
       setIsSubmitting(false);
       return;
     }
-  
+
     try {
       const response = await fetch(backendUrl, {
         method: 'POST',
@@ -38,21 +35,14 @@ const RegistrationForm = () => {
         },
         body: JSON.stringify({ email, name, phone }),
       });
-  
-      const responseText = await response.text();
-      let data;
-      try {
-        data = JSON.parse(responseText);
-      } catch (parseError) {
-        setError('Invalid response.');
-        throw new Error('Invalid JSON response');
-      }
-  
+
+      const data = await response.json();
+
       if (!response.ok) {
         setError(data.message || 'Something went wrong.');
-        throw new Error('HTTP error');
+        return;
       }
-  
+
       setIsSubmitted(true);
     } catch (err) {
       console.error('Submission error:', err);
@@ -61,11 +51,10 @@ const RegistrationForm = () => {
       setIsSubmitting(false);
     }
   };
-  
 
   return (
-    <motion.div 
-      id="register" 
+    <motion.div
+      id="register"
       className="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -74,20 +63,29 @@ const RegistrationForm = () => {
       <div className="bg-white shadow-2xl rounded-lg p-8 w-full max-w-md">
         {!showForm ? (
           <>
-            <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800">Register for Your FREE Spot</h2>
-            <p className="mb-8 text-center text-gray-600">Join our exclusive community and get access to life-changing events!</p>
+            <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800">
+              Register for Your FREE Spot
+            </h2>
+            <p className="mb-8 text-center text-gray-600">
+              Join our exclusive community and get access to life-changing events!
+            </p>
             <button
               onClick={() => setShowForm(true)}
               className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full w-full transition duration-300 transform hover:scale-105"
             >
               RESERVE YOUR SPOT NOW
             </button>
-            <p className="text-center mt-4 text-sm text-gray-500">You'll receive a confirmation email shortly after registering.</p>
+            <p className="text-center mt-4 text-sm text-gray-500">
+              You'll receive a confirmation email shortly after registering&#39;s
+            </p>
           </>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
-              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+              <div
+                className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
+                role="alert"
+              >
                 <strong className="font-bold">Error:</strong>
                 <span className="block sm:inline"> {error}</span>
               </div>
@@ -100,8 +98,11 @@ const RegistrationForm = () => {
             ) : (
               <>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                   Give Your Best Email
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Give Your Best Email
                   </label>
                   <input
                     id="email"
@@ -115,7 +116,10 @@ const RegistrationForm = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Preferred Name
                   </label>
                   <input
@@ -130,7 +134,10 @@ const RegistrationForm = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Phone Number
                   </label>
                   <PhoneInput
@@ -155,8 +162,7 @@ const RegistrationForm = () => {
         )}
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default RegistrationForm
-
+export default RegistrationForm;

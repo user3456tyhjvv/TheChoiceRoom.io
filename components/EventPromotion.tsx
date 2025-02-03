@@ -12,9 +12,9 @@ interface Event {
 
 const EventPromotion = () => {
   const [events] = useState<Event[]>([
-    { id: 1, title: "The Introduction", date: "January 11, 2025", description: "This will be an introduction to the One thing." },
-    { id: 2, title: "The Strategy", date: "January 16, 2025", description: "How will I be consistent?" },
-    { id: 3, title: "The Growth", date: "January 18, 2025", description: "I have set everything up. It's time for 'GROWTH!'." },
+    { id: 1, title: "The Introduction", date: "February 10, 2025", description: "This will be an introduction to the One thing." },
+    { id: 2, title: "The Strategy", date: "February 14, 2025", description: "How will I be consistent?" },
+    { id: 3, title: "The Growth", date: "February 16, 2025", description: "I have set everything up. It's time for 'GROWTH!'." },
   ])
 
   const [showNotification, setShowNotification] = useState(false)

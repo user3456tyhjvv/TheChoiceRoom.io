@@ -1,4 +1,5 @@
-'use client'
+"use client"
+
 
 import React from 'react'
 import YouTube from 'react-youtube'
@@ -30,9 +31,8 @@ function YouTubeEmbed({ url, title = 'YouTube video player', className = '' }: Y
 
   return (
     <div className={`aspect-w-16 aspect-h-9 w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg ${className}`}>
-    <YouTube videoId={id} opts={opts} title={title} />
-  </div>
-  
+      <YouTube videoId={id} opts={opts} title={title} />
+    </div>
   )
 }
 
@@ -58,29 +58,29 @@ export default function VideoAndThumbnailsSection() {
   const thumbnails = [
     {
       icon: <Lightbulb size={40} />,
-      title: "Discover Your Purpose",
-      description: "Uncover your true calling and align your life with your deepest values."
+      title: 'Discover Your Purpose',
+      description: 'Uncover your true calling and align your life with your deepest values.',
     },
     {
       icon: <Target size={40} />,
-      title: "Set Meaningful Goals",
-      description: "Learn to create and achieve goals that truly matter to you."
+      title: 'Set Meaningful Goals',
+      description: 'Learn to create and achieve goals that truly matter to you.',
     },
     {
       icon: <Users size={40} />,
-      title: "Build Lasting Relationships",
-      description: "Develop the skills to foster deep, meaningful connections with others."
+      title: 'Build Lasting Relationships',
+      description: 'Develop the skills to foster deep, meaningful connections with others.',
     },
     {
       icon: <Zap size={40} />,
-      title: "Unlock Your Potential",
-      description: "Tap into your inner resources and achieve personal growth like never before."
-    }
+      title: 'Unlock Your Potential',
+      description: 'Tap into your inner resources and achieve personal growth like never before.',
+    },
   ]
 
   return (
     <>
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -90,14 +90,15 @@ export default function VideoAndThumbnailsSection() {
           Introduction to The One Choice
         </h2>
         <div className="w-full max-w-4xl mx-auto">
-          <YouTubeEmbed 
-            url="https://youtu.be/lhBL89UZ5hw" 
+          <YouTubeEmbed
+            url="https://youtu.be/lhBL89UZ5hw"
             title="The One Choice Official Introduction Video"
             className="h-64 sm:h-80 md:h-96 lg:h-[32rem] xl:h-[36rem]"
           />
         </div>
         <p className="mt-4 sm:mt-6 lg:mt-8 text-base sm:text-lg lg:text-xl text-gray-600 text-center max-w-3xl mx-auto">
-          Discover how The One Choice can transform your life. This video provides an in-depth overview of our unique approach and the benefits you'll experience on your journey with us.
+          Discover how The One Choice can transform your life. This video provides an in-depth overview of our unique
+          approach and the benefits you&#39;ll experience on your journey with us.
         </p>
       </motion.section>
 
@@ -114,4 +115,3 @@ export default function VideoAndThumbnailsSection() {
     </>
   )
 }
-
