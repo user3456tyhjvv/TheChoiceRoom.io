@@ -4,7 +4,7 @@ import Cors from 'cors';
 // Initialize CORS
 const cors = Cors({
   methods: ['GET', 'POST', 'OPTIONS'],
-  origin: 'https://thechoiceroomio-production.up.railway.app/', // Allows all origins
+  origin: 'https://the-choice-room-io.vercel.app/', // Allows all origins
 });
 
 // Helper function to run middleware
