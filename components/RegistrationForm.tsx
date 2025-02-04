@@ -14,44 +14,42 @@ const RegistrationForm: React.FC = () => {
   const [error, setError] = useState('');
   const [showForm, setShowForm] = useState(false);
 
-  const backendUrl = 'https://the-choice-room-io-whu9.vercel.app/backend/subscribeHandler';
-
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
 
     if (!email || !name || !phone) {
-      setError('All fields are required.');
-      setIsSubmitting(false);
-      return;
+        setError('All fields are required.');
+        setIsSubmitting(false);
+        return;
     }
 
     try {
-      const response = await fetch(backendUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, name, phone }),
-      });
+        const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, name, phone }),
+        });
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (!response.ok) {
-        setError(data.message || 'Something went wrong.');
-        return;
-      }
+        if (!response.ok) {
+            setError(data.message || 'Something went wrong.');
+            return;
+        }
 
-      setIsSubmitted(true);
+        setIsSubmitted(true);
     } catch (err) {
-      console.error('Submission error:', err);
-      setError('Error. Please try again.');
+        console.error('Submission error:', err);
+        setError('Error. Please try again.');
     } finally {
-      setIsSubmitting(false);
+        setIsSubmitting(false);
     }
-  };
+};
+
 
   return (
     <motion.div
