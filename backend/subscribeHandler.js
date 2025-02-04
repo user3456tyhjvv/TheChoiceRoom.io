@@ -33,12 +33,16 @@ export default async function handler(req, res) {
 
     // Setup Nodemailer transporter
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587, // Use 465 if you set `secure: true`
+      secure: false, // Set to true only if using port 465
       auth: {
-        user: process.env.EMAIL_USER, // Add to environment variables
-        pass: process.env.EMAIL_PASS, // Add to environment variables
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
       },
-    });
+  });
+  
+    
 
     // Email to user: Welcome email with HTML styling
     const userMailOptions = {
@@ -78,7 +82,7 @@ export default async function handler(req, res) {
               <p><strong>Email:</strong> ${email}</p>
               <p><strong>Phone:</strong> ${phone}</p>
             </div>
-            <p style="font-size: 16px; color: #555;">You can contact them directly if needed.</p>
+            <p style="font-size: 16px; color: #555;">You can contact them directly if needed.Congratulations sir</p>
             <p style="font-size: 16px; color: #555;">Best regards,<br>Your Choice Program Team</p>
           </body>
         </html>

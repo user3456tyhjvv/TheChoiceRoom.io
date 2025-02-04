@@ -19,7 +19,7 @@ app.use(cors({ origin: 'https://the-choice-room-lcr4puzqv-user3456tyhjvvs-projec
 app.post('/backend/subscribeHandler', subscribeHandler);
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
