@@ -7,6 +7,10 @@ dotenv.config();
 
 const app = express();
 
+app.get('/', (req, res) => {
+  res.send('Welcome to The Choice Room!');
+});
+
 // Middleware
 app.use(express.json()); // Parse JSON requests
 app.use(cors({ origin: 'http://localhost:3001' })); // Allow frontend origin
