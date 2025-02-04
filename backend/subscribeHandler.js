@@ -1,5 +1,5 @@
-const nodemailer = require('nodemailer');
-const Cors = require('cors');
+import nodemailer from 'nodemailer';
+import Cors from 'cors';
 
 // Initialize CORS
 const cors = Cors({
