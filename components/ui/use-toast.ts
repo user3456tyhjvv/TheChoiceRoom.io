@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 // Inspired by react-hot-toast library
 import * as React from "react"
@@ -16,6 +16,8 @@ type ToasterToast = ToastProps & {
   title?: React.ReactNode
   description?: React.ReactNode
   action?: ToastActionElement
+  open: boolean  // Ensure this is required if you need to manage state for toasts
+  onOpenChange?: (open: boolean) => void
 }
 
 const actionTypes = {
@@ -36,21 +38,22 @@ type ActionType = typeof actionTypes
 
 type Action =
   | {
-      type: ActionType["ADD_TOAST"]
+      type: typeof actionTypes.ADD_TOAST
       toast: ToasterToast
     }
   | {
-      type: ActionType["UPDATE_TOAST"]
+      type: typeof actionTypes.UPDATE_TOAST
       toast: Partial<ToasterToast>
     }
   | {
-      type: ActionType["DISMISS_TOAST"]
+      type: typeof actionTypes.DISMISS_TOAST
       toastId?: ToasterToast["id"]
     }
   | {
-      type: ActionType["REMOVE_TOAST"]
+      type: typeof actionTypes.REMOVE_TOAST
       toastId?: ToasterToast["id"]
     }
+
 
 interface State {
   toasts: ToasterToast[]
