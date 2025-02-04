@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 // Middleware
 app.use(express.json()); // Parse JSON requests
-app.use(cors({ origin: 'https://the-choice-room-lcr4puzqv-user3456tyhjvvs-projects.vercel.app' })); // Allow frontend origin
+app.use(cors({ origin: 'https://thechoiceroomio-production.up.railway.app/' })); // Allow frontend origin
 
 // Route for handling form submission
 app.post('/backend/subscribeHandler', subscribeHandler);
