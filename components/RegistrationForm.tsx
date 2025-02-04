@@ -14,7 +14,8 @@ const RegistrationForm: React.FC = () => {
   const [error, setError] = useState('');
   const [showForm, setShowForm] = useState(false);
 
-  const backendUrl = 'http://localhost:3000/backend/subscribeHandler';
+  const backendUrl = 'https://thechoiceroomio-production.up.railway.app/backend/subscribeHandler';
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
